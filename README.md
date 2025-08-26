@@ -1,32 +1,49 @@
-# 🧠 DSA with Java
+# Data Structures and Algorithms in Java
 
-Welcome to my Data Structures and Algorithms (DSA) practice repository!  
-I'm starting my DSA journey with basic Java problems, focusing first on **pattern-based logic building**.
+This repository contains implementations of various Data Structures and Algorithms problems in Java.
 
----
+## Project Structure
 
-## ✅ Topics Covered So Far
+```
+DSA/
+├── PATTERN PROBLEMS/
+│   └── SIMPLE PATTERNS/
+│       └── HalfPyramid.java
+└── .gitignore
+```
 
-### 📌 Pattern Problems:
+## Pattern Problems
 
+### Simple Patterns
+- **HalfPyramid**: Prints a half pyramid pattern using numbers
+  ```
+  1
+  1 2
+  1 2 3
+  1 2 3 4
+  ```
 
----
+## How to Run
 
-## 🛠️ Languages Used:
-- Java (main)
+1. Make sure you have Java installed on your system
+2. Navigate to the specific problem directory
+3. Compile the Java file:
+   ```bash
+   javac HalfPyramid.java
+   ```
+4. Run the compiled program:
+   ```bash
+   java HalfPyramid
+   ```
 
----
+## Contributing
 
-## 📅 Started On:
-**July 2025**
+Feel free to contribute by:
+1. Forking the repository
+2. Creating a new branch
+3. Making your changes
+4. Submitting a pull request
 
----
+## License
 
-## 📈 Goals:
-- Strengthen problem-solving using Java
-- Practice consistently
-- Build a clean DSA portfolio over time
-
----
-
-### 📁 Folder Structure (Planned)
+This project is licensed under the MIT License - see the LICENSE
