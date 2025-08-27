@@ -97,6 +97,21 @@ public static int firstOccurence(int [] arr, int key,int i){
             removeDuplicates(str,idx+1,newStr.append(currChar),map);
         }
     }
+    public static void printBinaryString(int n , int lastPlace, StringBuilder str) {
+        if (n == 0) {
+            System.out.println(str);
+            return;
+        }
+
+        // branch with '0'
+        printBinaryString(n - 1, 0, new StringBuilder(str).append("0"));
+
+        // branch with '1' only if last was 0
+        if (lastPlace == 0) {
+            printBinaryString(n - 1, 1, new StringBuilder(str).append("1"));
+        }
+    }
+
     public static void main(String[] args) {
 //        int n =10;
 //        System.out.println("Decending order");
@@ -106,10 +121,10 @@ public static int firstOccurence(int [] arr, int key,int i){
 //        int ans = fact(5);
 //        System.out.println(sum(n));
 //        System.out.println(tilling(4));
-        String str ="appnacollege";
-        removeDuplicates(str,0,new StringBuilder(""),new boolean[26]);
 
-
+//        String str ="appnacollege";
+//        removeDuplicates(str,0,new StringBuilder(""),new boolean[26]);
+        printBinaryString(5,0,new StringBuilder(""));
     }
 
 }
