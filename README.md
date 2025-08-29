@@ -1,49 +1,123 @@
 # Data Structures and Algorithms in Java
 
-This repository contains implementations of various Data Structures and Algorithms problems in Java.
+A comprehensive collection of Data Structures and Algorithms implementations in Java.
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 DSA/
+├── 2D Arrays/
+│   ├── DiagonalSum.java
+│   ├── Matrix.java
+│   ├── SearchInSortedMatrix.java
+│   └── SpiralMatrix.java
+├── ArrayList/
+│   ├── MultiDimensional.java
+│   └── Test.java
+├── Arrays/
+│   ├── ArrayCC.java
+│   ├── BinarySearch.java
+│   ├── KadanesAlgorithm.java
+│   └── more...
+├── DivideNdConqueror/
+│   ├── Main.java
+│   ├── Quick.java
+│   └── RotateSorting.java
+├── JavaGeneric/
+│   ├── Box.java
+│   ├── Container.java
+│   └── more...
+├── Linked List/
+│   ├── DoubleLL.java
+│   └── LinkedList.java
 ├── PATTERN PROBLEMS/
+│   ├── ADVANCE PATTERNS/
 │   └── SIMPLE PATTERNS/
-│       └── HalfPyramid.java
-└── .gitignore
+├── Recursion/
+│   └── RecursionBasics.java
+├── Sorting Algorithms/
+│   ├── BubbleSort.java
+│   ├── CountingSort.java
+│   └── more...
+├── Stack/
+│   └── Stack.java
+└── Strings/
+    ├── Compression.java
+    ├── Palindrome.java
+    └── more...
 ```
 
-## Pattern Problems
+## 🚀 Topics Covered
 
-### Simple Patterns
-- **HalfPyramid**: Prints a half pyramid pattern using numbers
-  ```
-  1
-  1 2
-  1 2 3
-  1 2 3 4
-  ```
+### 1. Arrays and 2D Arrays
+- Linear Search & Binary Search
+- Kadane's Algorithm
+- Matrix Operations
+- Spiral Matrix
+- Diagonal Sum
 
-## How to Run
+### 2. Pattern Problems
+- Simple Patterns
+- Advanced Patterns (Butterfly, Diamond, Floyd's Triangle)
+- Character Patterns
 
-1. Make sure you have Java installed on your system
-2. Navigate to the specific problem directory
-3. Compile the Java file:
-   ```bash
-   javac HalfPyramid.java
-   ```
-4. Run the compiled program:
-   ```bash
-   java HalfPyramid
-   ```
+### 3. Data Structures
+- LinkedList (Single & Double)
+- Stack
+- ArrayList
+- Strings
 
-## Contributing
+### 4. Algorithms
+- Sorting
+  - Bubble Sort
+  - Insertion Sort
+  - Selection Sort
+  - Counting Sort
+- Divide & Conquer
+- Recursion
 
-Feel free to contribute by:
-1. Forking the repository
-2. Creating a new branch
-3. Making your changes
-4. Submitting a pull request
+### 5. Generic Programming
+- Java Generics Implementation
+- Custom Generic Classes
 
-## License
+## 🛠️ How to Run
 
-This project is licensed under the MIT License - see the LICENSE
+1. Ensure Java Development Kit (JDK) is installed:
+```bash
+java --version
+```
+
+2. Navigate to specific problem directory:
+```bash
+cd "folder_name"
+```
+
+3. Compile Java file:
+```bash
+javac FileName.java
+```
+
+4. Run the program:
+```bash
+java FileName
+```
+
+## 💡 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contact & Support
+
+- Create an issue for questions or problems
+- Star ⭐ the repository if you find it helpful
+
+---
+Made with ❤️ for DSA learners
