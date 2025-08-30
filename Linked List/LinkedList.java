@@ -336,8 +336,21 @@ public class LinkedList {
             left=nextLeft;
             right = nextRight;
         }
-    }
 
+    }
+    public int helper(Node head,int target){
+        if(head==null)return -1;
+
+        if(head.data==target) return  0;
+
+        int idx = helper(head.next, target);
+        if(idx==-1) return  -1;
+
+        return idx+1;
+    }
+    public int recursiveSearch(int target){
+        return helper(head,target);
+    }
 
 
     public static void main(String[] args) {
