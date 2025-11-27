@@ -14,6 +14,22 @@ public class Main {
             }
             return new int[] {};
         }
+    public int removeDuplicates(int[] nums) {
+        int count=1;
+        int i=0;
+        int j=1;
+        while(j<nums.length){
+            if(nums[i]==nums[j]){
+                j++;
+            }else{
+                nums[i+1]=nums[j];
+                i++;
+                count++;
+            }
+        }
+        return count;
+
+    }
     public static void main(String[] args) {
         int arr[] = {1,2,3,4,5,6};
         int tar = 11;
