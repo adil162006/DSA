@@ -15,6 +15,64 @@ public class Main {
             }
             return new int[] {};
         }
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> result = new ArrayList<>();
+        int n =nums.length;
+        for (int i =0;i<n-2;i++){
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            int left = i+1;
+            int right=n-1;
+            int sum = -1*nums[i];
+
+            while(left<right){
+                int s = nums[right]+nums[left];
+                if(s==sum){
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    left++;
+                    right--;
+                    while(left<n && nums[left]==nums[left-1]){
+                        left++;
+                    }
+                    while(right>=0 && nums[right]==nums[right+1]){
+                        right--;
+                    }
+                }else if(s<sum){
+                    left++;
+                }else{
+                    right--;
+                }
+
+            }
+        }
+        return result;
+    }
+    public int threeSumClosest(int[] arr, int target) {
+        int n= arr.length;
+        int result=0;
+        Arrays.sort(arr);
+        int MaxDiff=Integer.MAX_VALUE;
+        for(int i =0;i<n-2;i++){
+            int left = i+1;
+            int right=n-1;
+            while(left<right){
+                int sum = arr[i]+arr[left]+arr[right];
+                int diff = Math.abs(sum-target);
+                if(MaxDiff>diff){
+                    MaxDiff=diff;
+                    result=sum;
+                }
+                if(sum==target){
+                    return sum;
+                }else if(sum<target){
+                    left++;
+                }else{
+                    right--;
+                }
+            }
+        }
+        return result;
+    }
     public static int removeDuplicates(int[] nums) {
         int count=1;
         int i=0;
