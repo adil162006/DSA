@@ -73,6 +73,7 @@ public class Main {
         }
         return result;
     }
+
     public static int removeDuplicates(int[] nums) {
         int count=1;
         int i=0;
@@ -147,6 +148,49 @@ public class Main {
             res[id++]=pos.get(j++);
         }
         return res;
+    }
+    long countTriplets(int n, int target, long arr[]) {
+
+        Arrays.sort(arr);
+        int count=0;
+        for(int i=0;i<n-2;i++){
+            int left=i+1;
+            int right=n-1;
+            while(left<right){
+                long sum = arr[i]+arr[left]+arr[right];
+
+                if(sum>=target){
+                    right--;
+                }else{
+                    count = count + (right-left);
+                    left++;
+                }
+            }
+        }
+        return count;
+
+    }
+    public void sortColors(int[] arr) {
+        int n = arr.length;
+        int low =0;
+        int high = n-1;
+        int mid = 0;
+        while(mid<=high){
+            if (arr[mid] == 0){
+                int temp =arr[low];
+                arr[low]=arr[mid];
+                arr[mid]=temp;
+                low++;
+                mid++;
+            }else if(arr[mid]==1){
+                mid++;
+            }else{
+                int temp = arr[high];
+                arr[high] = arr[mid];
+                arr[mid]= temp;
+                high--;
+            }
+        }
     }
     public static void main(String[] args) {
         int arr[] = {1,2,2,2,3,3,4,5,6};
