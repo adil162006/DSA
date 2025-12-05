@@ -1,3 +1,4 @@
+import java.util.*;
 public class Main {
     public int maxSubarraySum(int[] arr, int k) {
         // Code here
@@ -35,6 +36,54 @@ public class Main {
             high++;
         }
         return (result==Integer.MAX_VALUE) ? 0:result;
+    }
+    public int longestKSubstr(String s, int k) {
+        // code here
+        int low=0;
+        int high;
+        int n = s.length();
+        Map<Character,Integer>f=new HashMap<>();
+        int res=-1;
+        for(high=0;high<n;high++){
+            char c = s.charAt(high);
+            f.put(c,f.getOrDefault(c, 0) + 1);
+            while(f.size()>k){
+                char leftChar=s.charAt(low);
+                f.put(leftChar,f.get(leftChar)-1);
+                if(f.get(leftChar)==0){
+                    f.remove(leftChar);
+                }
+                low++;
+            }
+            if(f.size()==k){
+                res=Math.max(res,high-low+1);
+            }
+        }
+        return res;
+    }
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character,Integer>f=new HashMap<>();
+        int low=0;
+        int res=0;
+        int n = s.length();
+        for(int high=0;high<n;high++){
+            char c =s.charAt(high);
+            f.put(c,f.getOrDefault(c,0)+1);
+            int k = high-low+1;
+            while(f.size()<k){
+                char left = s.charAt(low);
+                f.put(left,f.get(left)-1);
+                if(f.get(left)==0) {
+                    f.remove(left);
+                }
+                low++;
+                k = high-low+1;
+            }
+            k=high-low+1;
+            res = Math.max(res,k);
+        }
+        return res;
+
     }
     public static void main(String[] args) {
 
