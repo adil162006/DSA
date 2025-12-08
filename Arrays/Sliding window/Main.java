@@ -116,6 +116,43 @@ public class Main {
         }
         return res;
     }
+    public String minWindow(String s, String t) {
+        int[] needed = new int[256];
+        int[] having = new int[256];
+
+        for (int i = 0; i < t.length(); i++) {
+            needed[t.charAt(i)]++;
+        }
+
+        int low = 0;
+        int start = 0;
+        int res = Integer.MAX_VALUE;
+
+        for (int high = 0; high < s.length(); high++) {
+            having[s.charAt(high)]++;
+
+            while (sahi(needed, having)) {
+                int len = high - low + 1;
+                if (res > len) {
+                    res = len;
+                    start = low;
+                }
+                having[s.charAt(low)]--;
+                low++;
+            }
+        }
+
+        return res == Integer.MAX_VALUE ? "" : s.substring(start, start + res);
+    }
+
+    boolean sahi(int[] needed, int[] having) {
+        for (int i = 0; i < 256; i++) {
+            if (needed[i] > having[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
     public static void main(String[] args) {
 
     }
