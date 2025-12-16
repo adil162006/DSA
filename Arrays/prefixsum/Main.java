@@ -57,6 +57,49 @@ public class Main {
         return res;
 
     }
+    public int subarraysDivByK(int[] arr, int k) {
+        HashMap<Integer,Integer>f=new HashMap<>();
+        int res =0;
+        int sum = 0;
+        f.put(0,1);
+
+        for (int i = 0;i<arr.length;i++){
+            sum+=arr[i];
+            int rem=sum%k;
+            if(rem<0) rem+=k;
+            int freq=f.getOrDefault(rem,0);
+            res+=freq;
+            f.put(rem,f.getOrDefault(rem,0)+1);
+        }
+        return res;
+    }
+    public int findMaxLength(int[] arr) {
+        int res=0;
+        int zero=0;
+        int one = 0;
+        HashMap<Integer,Integer>f=new HashMap<>();
+        for(int i = 0; i<arr.length;i++){
+            if(arr[i]==0){
+                zero++;
+            }else{
+                one++;
+            }
+
+            int diff = zero-one;
+            if(diff==0){
+                res= Math.max(res,i+1);
+
+            }
+            if(f.get(diff)==null){
+                f.put(diff,i);
+            }else{
+                int idx = f.get(diff);
+                int len = i - idx;
+                res=Math.max(len,res);
+            }
+        }
+        return res;
+    }
     public static void main(String[] args) {
 
     }
