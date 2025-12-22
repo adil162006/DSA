@@ -2,6 +2,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Main{
+    public int minMeetingRooms(int[] start, int[] end) {
+        // code here
+        Arrays.sort(start);
+        Arrays.sort(end);
+        int n = start.length;
+        int i=0;
+        int j=0;
+        int room=0;
+        int res=0;
+        while(i<n && j<n){
+            if(start[i]<end[j]){
+                room++;
+                res = Math.max(res,room);
+                i++;
+            }else{
+                room--;
+                j++;
+            }            
+        }
+        return res;
+    }
     public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
         int i=0;
         int j=0;
