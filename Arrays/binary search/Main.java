@@ -95,4 +95,47 @@ public class Main {
 
         System.out.println("=================================");
     }
+    int firstOccurence (int [] arr,int x){
+        int low=0; int high=arr.length - 1;
+        int res = -1;
+
+        while(low<=high){
+            int mid=low + (high-low)/2;
+            if(arr[mid]>x){
+                high=mid-1;
+            } else if (arr[mid]<x) {
+                low = mid+1;
+            }else{
+                res=mid;
+                high=mid-1;
+            }
+        }
+        return res;
+    }
+    int lastOccurence (int [] arr,int x){
+        int low=0; int high=arr.length - 1;
+        int res = -1;
+
+        while(low<=high){
+            int mid=low + (high-low)/2;
+            if(arr[mid]>x){
+                high=mid-1;
+            } else if (arr[mid]<x) {
+                low = mid+1;
+            }else{
+                res=mid;
+                low=mid+1;
+            }
+        }
+        return res;
+    }
+    int[] startAndEndPoint(int[] arr,int target){
+        int si=firstOccurence(arr,target);
+        int ei=lastOccurence(arr,target);
+
+        return new int[]{si,ei};
+    }
+    public int[] searchRange(int[] arr , int target){
+        return new int[] {-1,-1};
+    }
 }
