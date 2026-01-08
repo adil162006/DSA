@@ -62,39 +62,7 @@ public class Main {
         return res;
     }
 
-    public static void main(String[] args) {
 
-        int[] arr = {5, 7, 7, 8, 8, 10};
-        int target = 8;
-
-        System.out.println("=================================");
-        System.out.println("Array  : " + Arrays.toString(arr));
-        System.out.println("Target : " + target);
-        System.out.println("=================================\n");
-
-        int bs = binarySearch(arr, target);
-        System.out.println("[Binary Search]");
-        System.out.println("Found at index: " + bs + "\n");
-
-        int lb = lowerBound(arr, target);
-        int ub = upperBound(arr, target);
-
-        System.out.println("[Lower Bound]");
-        System.out.println("First index >= target: " + lb);
-
-        System.out.println("\n[Upper Bound]");
-        System.out.println("First index > target : " + ub);
-
-        System.out.println("\n[Search Range]");
-        if (lb == -1 || arr[lb] != target) {
-            System.out.println("Target not found → [-1, -1]");
-        } else {
-            int last = (ub == -1) ? arr.length - 1 : ub - 1;
-            System.out.println("Range: [" + lb + ", " + last + "]");
-        }
-
-        System.out.println("=================================");
-    }
     int firstOccurence (int [] arr,int x){
         int low=0; int high=arr.length - 1;
         int res = -1;
@@ -135,7 +103,103 @@ public class Main {
 
         return new int[]{si,ei};
     }
-    public int[] searchRange(int[] arr , int target){
-        return new int[] {-1,-1};
+    public int peakIndexInMountainArray(int[] arr) {
+        int n=arr.length;
+        int low=0;
+        int high=n-1;
+        int res=-1;
+        while(low<=high){
+            int mid=low + (high-low)/2;
+            if(arr[mid]<arr[mid+1]){
+                low=mid+1;
+            }else{
+                res=mid;
+                high=mid-1;
+            }
+        }
+        return res;
     }
+
+    public static void main(String[] args) {
+
+        System.out.println("\n================= BINARY SEARCH =================");
+        int[][] bsArrays = {
+                {1, 3, 5, 7, 9},
+                {2, 4, 6, 8, 10},
+                {5, 7, 7, 8, 8, 10},
+                {1},
+                {10, 20, 30, 40}
+        };
+        int[] bsTargets = {7, 6, 8, 1, 25};
+
+        for (int i = 0; i < bsArrays.length; i++) {
+            System.out.println("Array  : " + Arrays.toString(bsArrays[i]));
+            System.out.println("Target : " + bsTargets[i]);
+            System.out.println("Index  : " + binarySearch(bsArrays[i], bsTargets[i]));
+            System.out.println("----------------------------------");
+        }
+
+
+        System.out.println("\n================= LOWER & UPPER BOUND =================");
+        int[][] boundArrays = {
+                {1, 3, 3, 5, 7},
+                {2, 4, 6, 8, 10},
+                {5, 7, 7, 8, 8, 10},
+                {1, 1, 1, 1},
+                {10, 20, 30, 40}
+        };
+        int[] boundTargets = {3, 5, 8, 1, 25};
+
+        for (int i = 0; i < boundArrays.length; i++) {
+            System.out.println("Array  : " + Arrays.toString(boundArrays[i]));
+            System.out.println("Target : " + boundTargets[i]);
+            System.out.println("Lower Bound : " + lowerBound(boundArrays[i], boundTargets[i]));
+            System.out.println("Upper Bound : " + upperBound(boundArrays[i], boundTargets[i]));
+            System.out.println("----------------------------------");
+        }
+
+
+        System.out.println("\n================= FIRST & LAST OCCURRENCE =================");
+        Main obj = new Main();
+
+        int[][] occArrays = {
+                {5, 7, 7, 8, 8, 10},
+                {1, 1, 1, 1, 1},
+                {2, 4, 6, 8, 10},
+                {3, 3, 3, 3},
+                {1, 2, 3, 4, 5}
+        };
+        int[] occTargets = {8, 1, 6, 3, 9};
+
+        for (int i = 0; i < occArrays.length; i++) {
+            System.out.println("Array  : " + Arrays.toString(occArrays[i]));
+            System.out.println("Target : " + occTargets[i]);
+            int start = obj.firstOccurence(occArrays[i], occTargets[i]);
+            int end = obj.lastOccurence(occArrays[i], occTargets[i]);
+            System.out.println("Range  : [" + start + ", " + end + "]");
+            System.out.println("----------------------------------");
+        }
+
+
+        System.out.println("\n================= PEAK INDEX (MOUNTAIN ARRAY) =================");
+        int[][] mountainArrays = {
+                {0, 2, 4, 3, 1},
+                {1, 3, 5, 7, 6, 4, 2},
+                {0, 10, 5, 2},
+                {3, 5, 9, 12, 11, 7},
+                {1, 4, 6, 8, 7, 3}
+        };
+
+        for (int i = 0; i < mountainArrays.length; i++) {
+            System.out.println("Mountain Array : " + Arrays.toString(mountainArrays[i]));
+            int peak = obj.peakIndexInMountainArray(mountainArrays[i]);
+            System.out.println("Peak Index     : " + peak);
+            System.out.println("Peak Value     : " + mountainArrays[i][peak]);
+            System.out.println("----------------------------------");
+        }
+
+        System.out.println("\n================= END =================\n");
+    }
+
+
 }
