@@ -166,7 +166,35 @@ public class Main {
         }
         return -1;
     }
+    long fun(int[]a,int n , int speed){
+        long h=0;
+        for(int i=0;i<n;i++){
+            h+=a[i]/speed;
+            if(a[i]%speed != 0) h++;
 
+        }
+        return h;
+    }
+    public int minEatingSpeed(int[] a, int h) {
+        int n=a.length;
+        int low=1; int high=0;
+        int res=-1;
+        for(int i=0;i<n;i++){
+            high = Math.max(high,a[i]);
+        }
+
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            long hour = fun(a,n,mid);
+            if(hour>h){
+                low=mid+1;
+            }else{
+                res=mid;
+                high=mid-1;
+            }
+        }
+        return res;
+    }
     public static void main(String[] args) {
 
         System.out.println("\n================= BINARY SEARCH =================");
