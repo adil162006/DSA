@@ -110,6 +110,21 @@ public class Main {
         }
         return;
     }
+    static void createPermutation(int[]arr,int n,boolean[]used,int idx ,List<Integer>diary) {
+        if (idx == n) {
+            System.out.println(diary);
+            return;
+        }
+        for (int i = 0; i < n; i++) {
+            if (used[i]) continue;
+            used[i] = true;
+            diary.add(arr[i]);
+            createPermutation(arr, n, used, idx + 1, diary);
+            diary.remove(diary.size() - 1);
+            used[i] = false;
+        }
+        return;
+    }
 
 
     public static void main(String[] args) {
