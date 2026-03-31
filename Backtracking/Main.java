@@ -88,20 +88,46 @@ public class Main {
         return;
 
     }
+    static void combinationSum(int[] arr,int idx ,int n,int sum,int target,List<Integer>diary){
+        if(idx==n){
+            if(sum==target){
+                System.out.println(diary);
+            }
+            return;
+        }
+        //nahi lena hai
+
+        combinationSum(arr,idx+1,n,sum,target,diary);
+
+        if(arr[idx]+sum <=target){
+            diary.add(arr[idx]);
+            sum+=arr[idx];
+
+            combinationSum(arr,idx,n,sum,target,diary);
+            diary.remove(diary.size()-1);
+            sum-=arr[idx];
+
+        }
+        return;
+    }
 
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3};
         List<String> temp = new ArrayList<>();
-
+        int [] arr2 = {2,3,5};
+        int sum=0;
+        List<Integer>diary = new ArrayList<>();
+        int target=7;
+        combinationSum(arr2,0,arr2.length,sum,target,diary);
 //        generateSubsets(arr, arr.length, 0, temp);
 //        StringBuilder sb = new StringBuilder();
 //        generateParentheses(0,0,3,sb);
 
-//        doorChoice(arr.length,arr ,0,temp);
-        String digits = "223"; // test input
-        List<String> result = letterCombinations(digits);
-
-        System.out.println(result);
+////        doorChoice(arr.length,arr ,0,temp);
+//        String digits = "223"; // test input
+//        List<String> result = letterCombinations(digits);
+//
+//        System.out.println(result);
     }
 }
