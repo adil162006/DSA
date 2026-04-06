@@ -26,6 +26,50 @@ public class TreeSymmetry {
 
         return  r1 && r2;
     }
+    public Node invertTree(Node root) {
+        if(root == null) return null;
+        Node temp = root.left;
+        root.left=root.right;
+        root.right=temp;
+        invertTree(root.left);
+        invertTree(root.right);
+
+        return root;
+
+    }
+    public boolean flipEquiv(Node root1, Node root2) {
+        if(root1==null && root2==null)return true;
+        if(root1==null || root2==null)return false;
+
+        if(root1.data!=root2.data)return false;
+
+
+        boolean noFlip = flipEquiv(root1.left,root2.left) && flipEquiv(root1.right,root2.right);
+        boolean flip = flipEquiv(root1.left,root2.right) && flipEquiv(root1.right,root2.left);
+
+        return noFlip||flip;
+    }
+    public boolean isSubtree(Node root, Node subRoot) {
+        if(root==null )return false;
+
+        if( isSameTree(root,subRoot))return true;
+
+        return isSubtree(root.left,subRoot)||isSubtree(root.right,subRoot);
+    }
+    boolean isSameTree(Node root1,Node root2){
+        if(root1==null && root2==null)return true;
+        if(root1==null || root2==null)return false;
+
+        if(root1.data != root2.data) return false;
+
+        boolean r1 = isSame(root1.left,root2.left);
+        boolean r2 = isSame(root1.right,root2.right);
+
+
+        return r1 && r2;
+
+    }
+
 
     public static void main(String[] args) {
         // -------- Tree 1 --------
