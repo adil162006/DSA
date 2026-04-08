@@ -1,5 +1,6 @@
 public class Search {
     Node lcaAns = null;
+    Node lcaBSTAns = null;
 
     Node lca(Node root, Node p, Node q){
         lcaAns = null;
@@ -44,4 +45,27 @@ public class Search {
         if(root.data < tar) return bstSearch(root.right, tar);
         else return bstSearch(root.left, tar);
     }
+    Node lcaBST(Node root,Node p,Node q){
+        if(p.data<q.data){
+            lcaBSTHelper(root, p, q);
+        }else{
+            lcaBSTHelper(root, q, p);
+        }
+        return lcaBSTAns;
+    }
+    void lcaBSTHelper(Node root,Node p,Node q){
+        if(root==null)return;
+        if(root==p||root==q) {
+            lcaBSTAns = root;
+            return;
+        }
+        if(root.data<p.data) lcaBSTHelper(root.right,p,q);
+        else if (root.data>q.data)lcaBSTHelper(root.left,p,q);
+        else{
+            lcaBSTAns=root;
+            return;
+        }
+
+    }
+
 }
