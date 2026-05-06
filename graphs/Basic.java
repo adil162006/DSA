@@ -14,9 +14,6 @@ public class Basic {
 
             adj.get(src).add(dest);
             adj.get(dest).add(src);
-
-
-
         }
 return adj;
     }
