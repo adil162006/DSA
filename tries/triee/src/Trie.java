@@ -70,7 +70,8 @@ public class Trie {
 
             char ch = word.charAt(i);
 
-            // If the current character does not have
+            // If the current character does not
+
             // a corresponding node, create a new node.
             if (!node.containsKey(ch)) {
                 node.put(ch, new Node());
